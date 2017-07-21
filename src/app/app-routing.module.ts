@@ -4,7 +4,6 @@ import { RouterModule, Routes }   from '@angular/router';
 import { LoginComponent }         from './login/login.component';
 import { NewAccountComponent }    from './new-account/new-account.component';
 import { NotFoundComponent }      from './not-found/not-found.component';
-import { AdminComponent }         from './admin/admin.component';
 
 import { AuthGuard }              from './auth-guard.service';
 
