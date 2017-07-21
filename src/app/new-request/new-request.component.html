@@ -1,3 +1,67 @@
-<p>
-  new-request works!
-</p>
+
+<section>
+
+  <div class="new-request">
+    <h1>Novo Pedido</h1>
+
+    <select name="enterprise" id="enterprise">
+      <option value="">Selecione uma empresa</option>
+      <option value="druptec">Druptec</option>
+      <option value="brfoods">BRFoods</option>
+      <option value="bamerindus">Bamerindus</option>
+      <option value="economico">Economico</option>
+    </select>
+
+    <select name="product" id="product">
+      <option value="">Selecione um produto</option>
+      <option value="cerveja">Cerveja</option>
+      <option value="carne">Carne</option>
+      <option value="paodealho">Pão de Alho</option>
+      <option value="refrigerante">Refrigerante</option>
+      <option value="guardanapo">Guardanapo</option>
+      <option value="carvao">Carvão</option>
+      <option value="alcool">Àlcool</option>
+      <option value="churrasqueira">Churrasqueira</option>
+    </select>
+
+    <label for="qtd">Qtd</label>
+    <input type="number" name="qtd">
+
+    <button type="button" name="add">Adicionar</button>
+
+    <h2>Lista de Compras</h2>
+
+    <table>
+      <tr>
+        <th>Produto</th>
+        <th>Qtd</th>
+        <th>Ação</th>
+      </tr>
+      <tr>
+        <td>Carvão</td>
+        <td>2</td>
+        <td>
+          <a href="#">X</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Cerveja</td>
+        <td>24</td>
+        <td>
+          <a href="#">X</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Carne</td>
+        <td>2</td>
+        <td>
+          <a href="#">X</a>
+        </td>
+      </tr>
+    </table>
+    
+    <button type="submit" name="submit">Fechar Pedido</button>
+    
+  </div>
+  
+</section>
