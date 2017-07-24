@@ -5,53 +5,59 @@
     <h1>Dashboard</h1>
     <h2>Minhas Empresas</h2>
 
-    <table>
-      <tr>
-        <th>Nome fantasia</th>
-        <th>CNPJ</th>
-        <th>Qtd de pedidos</th>
-      </tr>
-      <tr>
-        <td>Druptec Soluções</td>
-        <td>28.354.669/0001-09</td>
-        <td>
-          <a [routerLink]="['/my-request']">1</a>
-        </td>
-      </tr>
-      <tr>
-        <td>BRFoods</td>
-        <td>35.577.109/0001-70</td>
-        <td>
-          <a [routerLink]="['/my-request']">4</a>
-        </td>
-      </tr>
-      <tr>
-        <td>PasquePag</td>
-        <td>34.763.818/0001-88</td>
-        <td>nenhum</td>
-      </tr>
-      <tr>
-        <td>Clubsocial</td>
-        <td>21.211.526/0001-90</td>
-        <td>
-          <a [routerLink]="['/my-request']">2</a>
-        </td>
-      </tr>
-      <tr>
-        <td>Bamerindus</td>
-        <td>87.487.918/0001-95</td>
-        <td>
-          <a [routerLink]="['/my-request']">1</a>
-        </td>
-      </tr>
-      <tr>
-        <td>Economico</td>
-        <td>48.886.574/0001-35</td>
-        <td>
-          <a [routerLink]="['/my-request']">2</a>
-        </td>
-      </tr>
-    </table>
+    <div class="table-content">
+      <table cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>Nome fantasia</th>
+            <th>CNPJ</th>
+            <th>Pedidos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Druptec Soluções</td>
+            <td align="center">28.354.669/0001-09</td>
+            <td align="center">
+              <a [routerLink]="['/my-request']">1</a>
+            </td>
+          </tr>
+          <tr>
+            <td>BRFoods</td>
+            <td align="center">35.577.109/0001-70</td>
+            <td align="center">
+              <a [routerLink]="['/my-request']">4</a>
+            </td>
+          </tr>
+          <tr>
+            <td>PasquePag</td>
+            <td align="center">34.763.818/0001-88</td>
+            <td align="center">nenhum</td>
+          </tr>
+          <tr>
+            <td>Clubsocial</td>
+            <td align="center">21.211.526/0001-90</td>
+            <td align="center">
+              <a [routerLink]="['/my-request']">2</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Bamerindus</td>
+            <td align="center">87.487.918/0001-95</td>
+            <td align="center">
+              <a [routerLink]="['/my-request']">1</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Economico</td>
+            <td align="center">48.886.574/0001-35</td>
+            <td align="center">
+              <a [routerLink]="['/my-request']">2</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   
 </section>

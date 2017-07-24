@@ -91,3 +91,56 @@ body {
 	    }
 	}
 }
+
+.body-content {
+	.content {
+		h1 {
+			border-bottom: 1px solid #e02438;
+			width: 100%;
+		}
+
+		h2 {
+			font-size: 1.2em;
+			color: #666;
+		}
+
+		table {
+			// border: 1px solid #e02438;
+
+			thead {
+				background-color: #666666;
+				color: $s-color;
+
+				th {
+					font-size: 20px;
+					padding: 5px 20px;
+				    border-bottom-color: #e02438;
+				    border-bottom-width: 5px;
+				    border-bottom-style: ridge;
+				}
+			}
+
+			tbody {
+				tr {
+					&:nth-child(even) {
+						background: #CCC
+					}
+					&:nth-child(odd) {
+						background: #FFF
+					}
+				}
+
+				td {
+					font-size: 18px;
+					padding: 5px 10px;
+
+					a {
+						width: 100%;
+						display: inline-block;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}
