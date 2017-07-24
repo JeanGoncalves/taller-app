@@ -4,6 +4,8 @@
   <div class="new-request">
     <h1>Novo Pedido</h1>
 
+    
+
     <select name="enterprise" id="enterprise">
       <option value="">Selecione uma empresa</option>
       <option value="druptec">Druptec</option>
@@ -12,55 +14,72 @@
       <option value="economico">Economico</option>
     </select>
 
-    <select name="product" id="product">
-      <option value="">Selecione um produto</option>
-      <option value="cerveja">Cerveja</option>
-      <option value="carne">Carne</option>
-      <option value="paodealho">Pão de Alho</option>
-      <option value="refrigerante">Refrigerante</option>
-      <option value="guardanapo">Guardanapo</option>
-      <option value="carvao">Carvão</option>
-      <option value="alcool">Àlcool</option>
-      <option value="churrasqueira">Churrasqueira</option>
-    </select>
-
-    <label for="qtd">Qtd</label>
-    <input type="number" name="qtd">
-
-    <button type="button" name="add">Adicionar</button>
 
     <h2>Lista de Compras</h2>
 
-    <table>
-      <tr>
-        <th>Produto</th>
-        <th>Qtd</th>
-        <th>Ação</th>
-      </tr>
-      <tr>
-        <td>Carvão</td>
-        <td>2</td>
-        <td>
-          <a href="#">X</a>
-        </td>
-      </tr>
-      <tr>
-        <td>Cerveja</td>
-        <td>24</td>
-        <td>
-          <a href="#">X</a>
-        </td>
-      </tr>
-      <tr>
-        <td>Carne</td>
-        <td>2</td>
-        <td>
-          <a href="#">X</a>
-        </td>
-      </tr>
-    </table>
-    
-    <button type="submit" name="submit">Fechar Pedido</button>
+    <div class="table-content">
+      <table cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Qtd</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carvão</td>
+            <td align="center">2</td>
+            <td align="center">
+              <button class="btn btn-icon">x</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Cerveja</td>
+            <td align="center">24</td>
+            <td align="center">
+              <button class="btn btn-icon">x</button>
+          </tr>
+          <tr>
+            <td>Carne</td>
+            <td align="center">2</td>
+            <td align="center">
+              <button class="btn btn-icon">x</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select name="product" class="product" id="product">
+                <option value="">Selecione um produto</option>
+                <option value="cerveja">Cerveja</option>
+                <option value="carne">Carne</option>
+                <option value="paodealho">Pão de Alho</option>
+                <option value="refrigerante">Refrigerante</option>
+                <option value="guardanapo">Guardanapo</option>
+                <option value="carvao">Carvão</option>
+                <option value="alcool">Àlcool</option>
+                <option value="churrasqueira">Churrasqueira</option>
+              </select>
+            </td>
+            <td align="center">
+              <button class="btn btn-icon">-</button>
+              <input type="number" class="quantity" name="qtd">
+              <button class="btn btn-icon">+</button>
+            </td>
+            <td align="center">
+              <button class="btn btn-icon">+</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" align="right">
+              <button type="submit" class="btn close-request" name="submit">Fechar Pedido</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
     
   </div>
   
