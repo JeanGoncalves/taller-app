@@ -1,0 +1,25 @@
+body {
+    background-color: $s-color;
+}
+
+.center {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    // margin: 20%;
+}
+
+.btn {
+	padding: 5px 15px;
+    font-size: 16px;
+    background-color: transparent;
+    border-color: $o-color;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+
+    &:hover {
+    	background-color: $o-color;
+    	color: $s-color;
+    }
+}

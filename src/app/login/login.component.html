@@ -1,22 +1,30 @@
 
 <section>
   
-  <div class="login center">
-    <span>Efetue seu login para acessar o sistema</span>
-    
-    <div>
-      <label for="login">Login</label>
-      <input type="text" name="login" placeholder="insira seu login">
-    </div>
+  <div class="center">
+    <div class="login">
 
-    <div>
-      <label for="password">Senha</label>
-      <input type="password" name="password">
-    </div>
+      <div class="title">Login</div>
 
-    <div>
-      <button type="button" routerLink="/new-account">Nova Conta</button>
-      <button type="submit" (click)="login()">Login</button>
+      <span class="description">Efetue seu login para acessar o sistema</span>
+      
+      <div class="itens-input">
+        <label for="login">Login</label>
+        <input type="text" name="login">
+      </div>
+
+      <div class="itens-input">
+        <label for="password">Senha</label>
+        <input type="password" name="password">
+      </div>
+
+      <div class="button-content">
+        <button class="btn" type="submit" (click)="login()">Login</button>
+      </div>
+
+      <div class="extra-links">
+        <a href="#"  routerLink="/new-account">Criar uma nova conta</a>
+      </div>
     </div>
   </div>
   
