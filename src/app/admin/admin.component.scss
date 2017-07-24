@@ -20,20 +20,24 @@
 		
 		ul {
 			list-style: none;
-			padding: 0 10px;
+			padding: 0;
 	
 			li {
 				font-size: 20px;
 				border-bottom: 1px solid #29292f;
-				padding: 10px 0;
 
 				a {
 					text-decoration: none;
 					color: $s-color;
+				    width: 100%;
+				    display: inline-block;
+				    cursor: pointer;
+				    padding: 10px; 
 				}
 
 				&:hover {
 					border-color: $o-color;
+					background-color: white;
 
 					a {
 						color: $o-color;
