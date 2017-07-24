@@ -26,6 +26,11 @@ body {
     	}
     }
 
+    &.btn-small {
+    	padding: 0 15px;
+    	font-size: 14px;
+    }
+
     &:hover {
     	background-color: $o-color;
     	color: $s-color;
@@ -105,8 +110,6 @@ body {
 		}
 
 		table {
-			// border: 1px solid #e02438;
-
 			thead {
 				background-color: #666666;
 				color: $s-color;
@@ -145,6 +148,15 @@ body {
 	}
 }
 
+.table-content {
+	display: flex;
+	justify-content: center;
+
+	table {
+		width: 70%;
+	}
+}
+
 .box-content {
 	display: flex;
 	flex-direction: column;
@@ -157,4 +169,27 @@ body {
 			margin: 20px 0;
 		}
 	}
+}
+
+.filter {
+	width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    background-color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #666666;
+
+    label {
+    	padding-right: 10px;
+    }
+
+    input {
+    	margin-right: 20px;
+    }
+
+    button {
+    	margin: 0 10px; 
+    }
 }

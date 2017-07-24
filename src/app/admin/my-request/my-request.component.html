@@ -1,49 +1,58 @@
 
 <section>
 
-  <div class="my-request">
+  <div class="my-request ">
     <h1>Meus pedidos</h1>
+
+    <div class="filter">
+      <label for="cnpj">CNPJ</label>
+      <input type="text" name="cnpj">
+
+      <label for="request">Pedido</label>
+      <input type="text" name="request">
+
+      <button class="btn btn-small" type="button" name="filter">Filtrar</button>
+    </div>
+
     <h2>Empresa X</h2>
 
-    <label for="cnpj">CNPJ</label>
-    <input type="text" name="cnpj">
-
-    <label for="request">Pedido</label>
-    <input type="text" name="request">
-
-    <button type="button" name="filter">Filtrar</button>
-
-    <table>
-      <tr>
-        <th>Código do Pedido</th>
-        <th>Itens do Pedido</th>
-        <th>Ações</th>
-      </tr>
-      <tr>
-        <td>20</td>
-        <td>
-          2x carvão, <br>
-          20x cerveja, <br>
-          2x carne, <br>
-          1x guardanapo
-        </td>
-        <td>
-          <a href="#">Cancelar</a>
-        </td>
-      </tr>
-      <tr>
-        <td>300</td>
-        <td>
-          10x cerveja, <br>
-          1x carvão, <br>
-          10x guardanapo, <br>
-          1x carne
-        </td>
-        <td>
-          <a href="#">Cancelar</a>
-        </td>
-      </tr>
-    </table>
+    <div class="table-content">
+      <table cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>Código do Pedido</th>
+            <th>Itens do Pedido</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center">20</td>
+            <td>
+              2x carvão, <br>
+              20x cerveja, <br>
+              2x carne, <br>
+              1x guardanapo
+            </td>
+            <td align="center">
+              <a href="#">Cancelar</a>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">300</td>
+            <td>
+              10x cerveja, <br>
+              1x carvão, <br>
+              10x guardanapo, <br>
+              1x carne
+            </td>
+            <td align="center">
+              <a href="#">Cancelar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
   
