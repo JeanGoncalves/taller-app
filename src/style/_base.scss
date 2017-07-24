@@ -144,3 +144,17 @@ body {
 		}
 	}
 }
+
+.box-content {
+	display: flex;
+	flex-direction: column;
+
+	.content {
+		align-self: center;
+		width: 50%;
+
+		.box {
+			margin: 20px 0;
+		}
+	}
+}
