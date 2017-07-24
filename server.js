@@ -5,7 +5,7 @@ const app = express();
 app.use(express.static(__dirname + '/dist'));
 
 app.get('*', function(req, res) {
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 // Start the app by listening on the default
