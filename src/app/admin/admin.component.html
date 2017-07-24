@@ -1,21 +1,40 @@
-<ul>
-  <li>
-    <a routerLink="./">Dashboard</a>
-  </li>
-  <li>
-    <a routerLink="./my-account">My Account</a>
-  </li>
-  <li>
-    <a routerLink="./my-request">My Request</a>
-  </li>
-  <li>
-    <a routerLink="./new-enterprise">New Enterprise</a>
-  </li>
-  <li>
-    <a routerLink="./new-request">New Request</a>
-  </li>
-  <li>
-    <a routerLink="/" (click)="logout()">Logout</a>
-  </li>
-</ul>
-<router-outlet></router-outlet>
+<header>
+  <div class="header-content">
+
+    <div class="left-content">
+    </div>
+
+    <div class="right-content">
+      <span>Olá Fulano, Bom dia</span>
+    </div>
+
+  </div>
+</header>
+
+<div class="body-content">
+  <div class="menu">
+    <ul>
+      <li>
+        <a routerLink="./">Início</a>
+      </li>
+      <li>
+        <a routerLink="./my-account">Minha Conta</a>
+      </li>
+      <li>
+        <a routerLink="./my-request">Meus pedidos</a>
+      </li>
+      <li>
+        <a routerLink="./new-request">Novo pedido</a>
+      </li>
+      <li>
+        <a routerLink="./new-enterprise">Nova Empresa</a>
+      </li>
+      <li>
+        <a routerLink="/" (click)="logout()">Sair</a>
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

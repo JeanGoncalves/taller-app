@@ -1,0 +1,44 @@
+@import '../../style/variables';
+
+.header-content {
+	display: flex;
+	justify-content: space-between;
+    padding: 8px 15px;
+    background-color: #29292f;
+    color: #eaf1f9;
+    font-size: 22px;
+}
+
+.body-content {
+	display: flex;
+	justify-content: flex-start;
+	height: 100%;
+
+	.menu{
+		background-color: #666666;
+		
+		ul {
+			list-style: none;
+			padding: 0 10px;
+	
+			li {
+				font-size: 20px;
+				border-bottom: 1px solid #29292f;
+				padding: 10px 0;
+
+				a {
+					text-decoration: none;
+					color: $s-color;
+				}
+
+				&:hover {
+					border-color: $o-color;
+
+					a {
+						color: $o-color;
+					}
+				}
+			}
+		}
+	}
+}

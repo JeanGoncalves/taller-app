@@ -1,5 +1,12 @@
+html,
+body {
+	height: 100%;
+}
+
 body {
     background-color: $s-color;
+    margin: 0 auto;
+    min-height: 100%;
 }
 
 .btn {
