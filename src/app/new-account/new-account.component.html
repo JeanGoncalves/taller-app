@@ -1,27 +1,32 @@
 <section>
 
-  <div class="new-account center">
-    <span>Novo Cadastro</span>
-    
-    <div>
-      <label for="email">E-mail</label>
-      <input type="email" name="email" placeholder="Insira seu e-mail">
-    </div>
+  <div class="center">
+    <div class="box-center">
 
-    <div>
-      <label for="password">Senha</label>
-      <input type="password" name="password">
-    </div>
+      <div class="title">Novo Cadastro</div>
 
-    <div>
-      <label for="repassword">Repetir Senha</label>
-      <input type="password" name="repassword">
-    </div>
+      <span class="description">Insira as informações abaixo para cadastrar</span>
+      
+      <div class="itens-input">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" placeholder="Insira seu e-mail">
+      </div>
 
-    <div>
-      <button type="button" name="cancel" routerLink="/login">Cancelar</button>
-      <button type="submit" name="submit">Cadastrar</button>
+      <div class="itens-input">
+        <label for="password">Senha</label>
+        <input type="password" name="password">
+      </div>
+
+      <div class="itens-input">
+        <label for="repassword">Repetir Senha</label>
+        <input type="password" name="repassword">
+      </div>
+
+      <div class="button-content">
+        <button class="btn btn-link" type="button" name="cancel" routerLink="/login">Cancelar</button>
+        <button class="btn" type="submit" name="submit">Cadastrar</button>
+      </div>
     </div>
   </div>
-  
+
 </section>
