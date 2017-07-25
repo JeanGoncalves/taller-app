@@ -14,19 +14,14 @@ const adminRoutes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
-      {
-        path: '',
-        canActivateChild: [AuthGuard],
-        children: [
-          { path: 'my-request',     component: MyRequestComponent },
-          { path: 'my-account',     component: MyAccountComponent },
-          { path: 'new-enterprise', component: NewEnterpriseComponent },
-          { path: 'new-request',    component: NewRequestComponent },
-          { path: '',               component: DashboardComponent }
-        ]
-      }
+      { path: 'my-request',     component: MyRequestComponent },
+      { path: 'my-request/:id', component: MyRequestComponent },
+      { path: 'my-account',     component: MyAccountComponent },
+      { path: 'new-enterprise', component: NewEnterpriseComponent },
+      { path: 'new-request',    component: NewRequestComponent },
+      { path: '',               component: DashboardComponent }
     ]
   }
 ];

@@ -30,23 +30,6 @@ export class NewRequestComponent implements OnInit {
 	public enterprise: 	Enterprise;
 	public product: 	Product;
 	
-	/*set enterpriseId(id: number) {
-		this._enterpriseId = Number(id);
-		this._enterprise = this.enterprises.find((enterprise) => enterprise.id === Number(id));
-	};
-
-	get enterpriseId() { return this._enterpriseId; };*/
-
-	/*set productId(id: number) {
-		this._productId = Number(id);
-		this._product = this.products.find((product) => product.id === Number(id));
-	}
-
-	get productId() {
-		return this._productId;
-	}*/
-
-
 	ngOnInit() {
 		this.enterpriseService.findAll()
 			.then((enterprises: Enterprise[]) => this.enterprises = enterprises);
@@ -88,7 +71,7 @@ export class NewRequestComponent implements OnInit {
 	};
 
 	createRequest() {
-		let request = new EnterpriseRequest(this.enterprise.request.length, this.listProducts);
+		let request = new EnterpriseRequest(this.enterprise.request.length + 1, this.listProducts);
 		this.request.push(request);
 		this.enterprise.request.push(request);
 

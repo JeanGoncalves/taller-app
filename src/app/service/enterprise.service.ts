@@ -24,9 +24,9 @@ export class EnterpriseService {
             .catch(this.handleError);
     }
 
-    find(cnpj: string): Promise<Enterprise> {
+    find(id: number): Promise<Enterprise> {
         return this.findAll()
-            .then((enterprise: Enterprise[]) => enterprise.find((enterprise) => enterprise.cnpj === cnpj));
+            .then((enterprise: Enterprise[]) => enterprise.find((enterprise) => enterprise.id === id));
     }
 
     create(enterprise: Enterprise): Promise<Enterprise> {

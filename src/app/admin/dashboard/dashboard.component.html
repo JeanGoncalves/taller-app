@@ -19,7 +19,7 @@
             <td>{{ enterprise.name }}</td>
             <td align="center">{{ enterprise.cnpj }}</td>
             <td align="center">
-              <a [routerLink]="['/my-request']">{{ enterprise.request.length }}</a>
+              <button class="btn btn-link" (click)="onSelect(enterprise)">{{ enterprise.request.length }}</button>
             </td>
           </tr>
         </tbody>

@@ -6,16 +6,15 @@
     <h2>Lista dos itens no pedido da empresa</h2>
 
     <div class="filter">
-      <label for="cnpj">CNPJ</label>
-      <!-- <input type="text" name="cnpj"> -->
-      <select [(ngModel)]="enterprise">
+      <label for="enterprise">Empresa</label>
+      <select [(ngModel)]="enterprise" (change)="onChange(enterprise)">
         <option *ngFor="let enterprise of enterprises" [ngValue]="enterprise">{{ enterprise.name }}</option>
       </select>
 
       <label for="request">Pedido</label>
-      <input type="text" name="request">
+      <input type="text" name="request" [(ngModel)]="requestFilter">
 
-      <button class="btn btn-small" type="button" name="filter">Filtrar</button>
+      <button class="btn btn-small" type="button" name="filter" (click)="onFilter()">Filtrar</button>
     </div>
 
     <div *ngIf="enterprise">
@@ -31,7 +30,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let request of enterprise.request">
+            <tr *ngFor="let request of listRequest">
               <td align="center">{{ request.id }}</td>
               <td>
                 <span *ngFor="let product of request.products">{{ product.quantity }}x {{ product.name }}<br /></span>
@@ -39,6 +38,11 @@
               <td align="center">
                 <button class="btn btn-link" (click)="cancelRequest(request)">Cancelar</button>
               </td>
+            </tr>
+            <tr *ngIf="listRequest == 0">
+              <td colspan="3" align="center">
+                Essa empresa não possui pedidos.
+                <button class="btn btn-link" routerLink="/admin/new-request">Clique aqui e adicione um novo pedido</button>
             </tr>
           </tbody>
         </table>
