@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
+import { FormsModule }          from '@angular/forms';
 
 import { AdminRoutingModule }       from './admin-routing.module';
 import { DashboardComponent }       from './dashboard/dashboard.component';
@@ -12,7 +13,8 @@ import { NewRequestComponent }      from './new-request/new-request.component';
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ],
   declarations: [
     AdminComponent,

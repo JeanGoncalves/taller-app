@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
+
+import { User } from './model/user.model';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -13,7 +15,19 @@ export class AuthService {
     private router: Router
   ) {};
 
-  public userLogin;
+  private userLogin;
+  public isLocalStorage: Boolean = false;
+
+  public get user() {
+    return this.userLogin;
+  }
+
+  public set user(user: User) {
+    this.userLogin = user;
+    if (this.isLocalStorage) {
+      localStorage.setItem('user', btoa(JSON.stringify(user)));
+    }
+  }
 
   // store the URL so we can redirect after logging in
   public redirectUrl: string;

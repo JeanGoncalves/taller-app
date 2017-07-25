@@ -29,7 +29,8 @@ export class LoginComponent  {
     this.userService
       .find(this.input.email, this.input.password)
       .then((user: User) => {
-        this.authService.userLogin = user;
+        this.authService.isLocalStorage = this.input.saveStorage;
+        this.authService.user = user;
         this.onLogin();
       });
 
@@ -37,7 +38,7 @@ export class LoginComponent  {
 
   onLogin() {
     this.authService.login().subscribe((t) => {
-      if (this.authService.userLogin) {
+      if (this.authService.user) {
 
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
@@ -54,10 +55,6 @@ export class LoginComponent  {
         this.router.navigate([redirect], navigationExtras);
       }
     });
-
-    if (this.input.saveStorage) {
-      localStorage.setItem('user', btoa(JSON.stringify(this.authService.userLogin)));
-    }
   }
 
 }

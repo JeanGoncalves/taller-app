@@ -9,22 +9,28 @@
 
         <div class="text-input box">
             <label for="email">E-mail</label>
-            <input type="email" name="email">
+            <input type="email" name="email" 
+                #email="ngModel" 
+                [(ngModel)]="user.email">
         </div>
 
         <div class="text-input box">
             <label for="password">Senha</label>
-            <input type="password" name="password">
+            <input type="password" name="password"
+                #password="ngModel"
+                [(ngModel)]="sPassword">
         </div>
 
         <div class="text-input box">
             <label for="repassword">Repetir Senha</label>
-            <input type="password" name="repassword">
+            <input type="password" name="repassword"
+                #repassword="ngModel"
+                [(ngModel)]="sRepassword">
         </div>
 
         <div class="button-content box">
-            <button class="btn btn-link" type="button" name="cancel">Cancelar</button>
-            <button class="btn" type="submit" name="submit">Alterar dados</button>
+            <button class="btn btn-link" type="button" name="cancel" (click)="cancel()">Cancelar</button>
+            <button class="btn" type="submit" name="submit" (click)="submit()">Alterar dados</button>
         </div>
     </div>
   </div>
