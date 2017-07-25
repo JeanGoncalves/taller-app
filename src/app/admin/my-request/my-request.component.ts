@@ -12,8 +12,7 @@ export class MyRequestComponent implements OnInit {
 
 	constructor(
 		private enterpriseService: EnterpriseService,
-		private route: ActivatedRoute,
-		private router: Router
+		private route: ActivatedRoute
 	) { }
 
 	public enterprises: Enterprise[];

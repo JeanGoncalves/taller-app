@@ -31,12 +31,12 @@ export class EnterpriseService {
 
     create(enterprise: Enterprise): Promise<Enterprise> {
         // generate primary key Test Ambiance
-        this.findAll().then(data => enterprise.id = data.length);
-        
+        // this.findAll().then(data => enterprise.id = data.length);
+
         return this.http
             .post(this.enterpriseUrl, JSON.stringify(enterprise), {headers: this.headers})
             .toPromise()
-            .then((response: Response) => response.json().data as Enterprise)
+            .then((response: Response) => response.json() as Enterprise)
             .catch(this.handleError);
     }
 

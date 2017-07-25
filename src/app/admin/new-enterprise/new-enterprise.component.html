@@ -11,17 +11,20 @@
 
         <div class="text-input box">
 		    <label for="name">Nome Fantasia</label>
-		    <input type="text" name="name">
+		    <input type="text" name="name" [(ngModel)]="name">
         </div>
 
         <div class="text-input box">
 		    <label for="cnpj">CNPJ</label>
-		    <input type="text" name="cnpj">
+		    <input type="text" 
+                name="cnpj" 
+                [textMask]="{mask: maskCnpj, guide: true}"
+                [(ngModel)]="cnpj">
         </div>
 
         <div class="button-content box">
-            <button class="btn btn-link" type="button" name="cancel">Cancelar</button>
-		    <button class="btn" type="submit" name="submit">Cadastrar</button>
+            <button class="btn btn-link" type="button" name="cancel" (click)="onCancel()">Cancelar</button>
+		    <button class="btn" type="submit" name="submit" (click)="onSubmit()">Cadastrar</button>
         </div>
     </div>
   </div>

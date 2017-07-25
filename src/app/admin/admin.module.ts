@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AdminComponent } from './admin.component';
-import { FormsModule }          from '@angular/forms';
+import { NgModule }                 from '@angular/core';
+import { CommonModule }             from '@angular/common';
+import { AdminComponent }           from './admin.component';
+import { FormsModule }              from '@angular/forms';
+import { TextMaskModule }           from 'angular2-text-mask';
 
 import { AdminRoutingModule }       from './admin-routing.module';
 import { DashboardComponent }       from './dashboard/dashboard.component';
@@ -14,7 +15,8 @@ import { NewRequestComponent }      from './new-request/new-request.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    TextMaskModule
   ],
   declarations: [
     AdminComponent,
