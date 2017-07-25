@@ -17,13 +17,16 @@ export class InMemoryDataService implements InMemoryDbService {
                         "id" : 1,
                         "products" : [
                             {
-                                "productId" : 6,
+                                "id" : 6,
+                                "name" : "Carvão",
                                 "quantity": 2
                             }, {
-                                "productId" : 1,
+                                "id" : 1,
+                                "name" : "Cerveja",
                                 "quantity" : 24
                             }, {
-                                "productId" : 2,
+                                "id" : 2,
+                                "name" : "Carne",
                                 "quantity" : 2
                             }
                         ] 
@@ -33,52 +36,27 @@ export class InMemoryDataService implements InMemoryDbService {
                 "id" : 2,
                 "name" : "BRFoods",
                 "cnpj" : "35.577.109/0001-70",
-                "request" : [
-                    {
-                        "id" : 1,
-                        "products" : []
-                    }
-                ]
+                "request" : []
             }, {
                 "id" : 3,
                 "name" : "PasquePag",
                 "cnpj" : "34.763.818/0001-88",
-                "request" : [
-                    {
-                        "id" : 1,
-                        "products" : [] 
-                    }
-                ]
+                "request" : []
             }, {
                 "id" : 4,
                 "name" : "Clubsocial",
                 "cnpj" : "21.211.526/0001-90",
-                "request" : [
-                    {
-                        "id" : 1,
-                        "products" : [] 
-                    }
-                ]
+                "request" : []
             }, {
                 "id" : 5,
                 "name" : "Bamerindus",
                 "cnpj" : "87.487.918/0001-95",
-                "request" : [
-                    {
-                        "id" : 1,
-                        "products" : [] 
-                    }
-                ]
+                "request" : []
             }, {
                 "id" : 6,
                 "name" : "Economico",
                 "cnpj" : "48.886.574/0001-35",
-                "request" : [
-                    {
-                        "id" : 1,
-                        "products" : [] 
-                    }
-                ]
+                "request" : []
             }
         ];
 

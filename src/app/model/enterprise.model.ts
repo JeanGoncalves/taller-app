@@ -4,22 +4,23 @@ export class Enterprise {
         public id: number,
         public name: string,
         public cnpj: string,
-        public request: Request[]
+        public request?: EnterpriseRequest[]
     ) {}
-}
+};
 
-class Request {
+export class EnterpriseRequest {
 
     constructor (
         public id: number,
-        public products: Products[]
+        public products?: EnterpriseProducts[]
     ) {}
-}
+};
 
-class Products {
+export class EnterpriseProducts {
 
     constructor (
-        public productId: number,
+        public id: number,
+        public name: string,
         public quantity: number
     ) {}
-}
+};
