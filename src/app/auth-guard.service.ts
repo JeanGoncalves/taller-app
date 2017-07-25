@@ -46,11 +46,11 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   checkAuthService() {
-    if (!this.authService.userLogin) { 
+    if (!this.authService.user) { 
       let user = localStorage.getItem('user');
       if (!user) { return false; }
 
-      this.authService.userLogin = JSON.parse(atob(user));
+      this.authService.user = JSON.parse(atob(user));
       return true;
     }
 

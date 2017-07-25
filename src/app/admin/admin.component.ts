@@ -10,14 +10,14 @@ import { User }               from '../model/user.model';
 })
 export class AdminComponent implements OnInit {
 
-  public user: User[];
+  public user: User;
 
   constructor(
     private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.user = this.authService.userLogin;
+    this.user = this.authService.user;
   }
 
   logout() {
