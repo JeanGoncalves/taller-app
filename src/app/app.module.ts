@@ -6,8 +6,15 @@ import { HttpModule }           from '@angular/http';
 import { AppComponent }         from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 import { AuthGuard }            from './auth-guard.service';
 import { AuthService }          from './auth.service';
+
+import { EnterpriseService }    from './service/enterprise.service';
+import { UserService }          from './service/user.service';
+import { ProductService }       from './service/product.service';
 
 import { LoginComponent }       from './login/login.component';
 import { NewAccountComponent }  from './new-account/new-account.component';
@@ -24,11 +31,15 @@ import { NotFoundComponent }    from './not-found/not-found.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
     AuthGuard,
-    AuthService
+    AuthService,
+    EnterpriseService,
+    UserService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

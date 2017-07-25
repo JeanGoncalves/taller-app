@@ -11,15 +11,14 @@ const appRoutes: Routes = [
   { path: 'admin',        loadChildren: './admin/admin.module#AdminModule', canLoad: [AuthGuard] },
   { path: 'login',        component: LoginComponent },
   { path: 'new-account',  component: NewAccountComponent },
-  { path: '',             redirectTo: '/login', pathMatch: 'full' },
-  { path: '**',           component: NotFoundComponent }
+  { path: '',             redirectTo: '/admin', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   exports: [

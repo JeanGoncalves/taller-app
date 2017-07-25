@@ -1,24 +1,43 @@
 import { Component, OnInit }        from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 
-import { AuthService }      from '../auth.service';
+import { AuthService }              from '../auth.service';
+import { UserService }              from '../service/user.service';
+import { User }                     from '../model/user.model'; 
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent  {
 
+  public input = {
+    email: '',
+    password: '',
+    saveStorage: false
+  };
+  public user: User;
+
   constructor(
-    public router: Router,
-    public authService: AuthService
+    private router: Router,
+    private authService: AuthService,
+    private userService: UserService
   ) { }
 
   login() {
 
-    this.authService.login().subscribe(() => {
-      if (this.authService.isLoggedIn) {
+    this.userService
+      .find(this.input.email, this.input.password)
+      .then((user: User) => {
+        this.authService.userLogin = user;
+        this.onLogin();
+      });
+
+  }
+
+  onLogin() {
+    this.authService.login().subscribe((t) => {
+      if (this.authService.userLogin) {
 
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
@@ -35,6 +54,10 @@ export class LoginComponent  {
         this.router.navigate([redirect], navigationExtras);
       }
     });
+
+    if (this.input.saveStorage) {
+      localStorage.setItem('user', btoa(JSON.stringify(this.authService.userLogin)));
+    }
   }
 
 }

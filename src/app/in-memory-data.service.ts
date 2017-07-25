@@ -87,12 +87,12 @@ export class InMemoryDataService implements InMemoryDbService {
                 "id" : 1,
                 "name" : "Admin",
                 "email": "admin@email.com",
-                "password" : "MTIzNDU2Nzg="
+                "password" : "MTIzNDU2Nzg=" // 12345678
             }, {
                 "id" : 2,
                 "name" : "Teste",
                 "email": "teste@email.com",
-                "password" : "dGVzdGUxMjM="
+                "password" : "dGVzdGUxMjM=" // teste123
             }, 
         ];
 

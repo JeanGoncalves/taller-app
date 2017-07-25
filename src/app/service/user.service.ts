@@ -26,7 +26,7 @@ export class UserService {
 
     find(email: string, password: string): Promise<User> {
         return this.findAll()
-            .then((user: User[]) => user.find((user) => user.email === email && user.password === atob(password)));
+            .then((user: User[]) => user.find((user) => user.email === email && user.password === btoa(password)));
     }
 
     create(user: User): Promise<User> {
