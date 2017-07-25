@@ -15,44 +15,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Druptec Soluções</td>
-            <td align="center">28.354.669/0001-09</td>
+          <tr *ngFor="let enterprise of enterprises">
+            <td>{{ enterprise.name }}</td>
+            <td align="center">{{ enterprise.cnpj }}</td>
             <td align="center">
-              <a [routerLink]="['/my-request']">1</a>
-            </td>
-          </tr>
-          <tr>
-            <td>BRFoods</td>
-            <td align="center">35.577.109/0001-70</td>
-            <td align="center">
-              <a [routerLink]="['/my-request']">4</a>
-            </td>
-          </tr>
-          <tr>
-            <td>PasquePag</td>
-            <td align="center">34.763.818/0001-88</td>
-            <td align="center">nenhum</td>
-          </tr>
-          <tr>
-            <td>Clubsocial</td>
-            <td align="center">21.211.526/0001-90</td>
-            <td align="center">
-              <a [routerLink]="['/my-request']">2</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Bamerindus</td>
-            <td align="center">87.487.918/0001-95</td>
-            <td align="center">
-              <a [routerLink]="['/my-request']">1</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Economico</td>
-            <td align="center">48.886.574/0001-35</td>
-            <td align="center">
-              <a [routerLink]="['/my-request']">2</a>
+              <a [routerLink]="['/my-request']">{{ enterprise.request.length }}</a>
             </td>
           </tr>
         </tbody>

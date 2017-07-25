@@ -21,6 +21,9 @@ import { NewRequestComponent }      from './new-request/new-request.component';
     MyRequestComponent,
     NewEnterpriseComponent,
     NewRequestComponent
+  ],
+  providers: [
+    AdminComponent
   ]
 })
 export class AdminModule { }
