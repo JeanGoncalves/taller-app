@@ -78,4 +78,9 @@ export class NewRequestComponent implements OnInit {
 		this.enterpriseService.update(this.enterprise);
 		this.listProducts = [];
 	}
+
+	onRemove(product) {
+		let index = this.listProducts.indexOf(product);
+		this.listProducts.splice(0, index);
+	}
 }

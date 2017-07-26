@@ -13,6 +13,14 @@ form {
 	width: 100%;
 }
 
+select {
+	border: 2px solid #e02438;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: white;
+    margin: 0 10px;
+}
+
 .text-danger {
 	color: $o-color;
 }
@@ -29,10 +37,11 @@ form {
     border-width: 2px;
     border-style: solid;
     border-radius: 5px;
-    cursor: pointer;
 
     &.btn-link {
     	border: 0;
+
+    	&:not[disabled],
     	&:hover {
     		background-color: transparent;
     		color: $o-color;
@@ -44,17 +53,23 @@ form {
     	font-size: 14px;
     }
 
-    &:hover, &.btn-color {
+    &:not[disabled],
+    &:hover, 
+    &.btn-color {
+    	cursor: pointer;
     	background-color: $o-color;
     	color: $s-color;
     }
 
     &.btn-icon {
 		border-radius: 50%;
-		background-color: #e02438;
 		padding: 0px 8px;
-		color: white;
 		font-size: 20px;
+		color: $o-color;
+
+		&:disabled {
+			color: grey;
+		}
     }
 }
 

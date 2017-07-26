@@ -1,61 +1,61 @@
 
 <section>
 
-  <div class="new-request box-content">
-    <h1>Novo Pedido</h1>
-    <h2>Selecione a empresa para cadastrar um novo pedido</h2>    
+    <div class="new-request box-content">
+        <h1>Novo Pedido</h1>
+        <h2>Selecione a empresa para cadastrar um novo pedido</h2>    
 
-    <select class="enterprise" [(ngModel)]="enterprise">
-      <option *ngFor="let enterprise of enterprises" [ngValue]="enterprise">{{ enterprise.name }}</option>
-    </select>
+        <select class="enterprise" [(ngModel)]="enterprise">
+            <option *ngFor="let enterprise of enterprises" [ngValue]="enterprise">{{ enterprise.name }}</option>
+        </select>
 
-    <div *ngIf="enterprise">
-      <h2>Lista de Compras</h2>
+        <div *ngIf="enterprise">
+            <h2>Lista de Compras</h2>
 
-      <div class="table-content">
-        <table cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Produto</th>
-              <th>Quantidade</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let product of listProducts">
-              <td>{{ product.name }}</td>
-              <td align="center">{{ product.quantity }}</td>
-              <td align="center">
-                <button class="btn btn-icon">x</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <select class="product" [(ngModel)]="product">
-                  <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}</option>
-                </select>
-              </td>
-              <td align="center">
-                <button class="btn btn-icon" (click)="qtdDown()">-</button>
-                <input type="number" class="quantity" name="qtd" [(ngModel)]="quantity">
-                <button class="btn btn-icon" (click)="qtdUp()">+</button>
-              </td>
-              <td align="center">
-                <button class="btn btn-icon" (click)="addProductToList()">+</button>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="3" align="right">
-              <button class="btn btn-link" (click)="clearList()" [disabled]="listProducts.length === 0">Limpar lista</button>
-                <button type="submit" class="btn close-request" name="submit" [disabled]="listProducts.length === 0" (click)="createRequest()">Fechar Pedido</button>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+            <div class="table-content">
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of listProducts">
+                            <td>{{ product.name }}</td>
+                            <td align="center">{{ product.quantity }}</td>
+                            <td align="center">
+                                <button class="btn btn-icon" (click)="onRemove(product)">x</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="product" [(ngModel)]="product">
+                                    <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}</option>
+                                </select>
+                            </td>
+                            <td align="center">
+                                <button class="btn btn-icon" (click)="qtdDown()">-</button>
+                                <input type="number" class="quantity" name="qtd" [(ngModel)]="quantity">
+                                <button class="btn btn-icon" (click)="qtdUp()">+</button>
+                            </td>
+                            <td align="center">
+                                <button class="btn btn-icon" [disabled]="!product" (click)="addProductToList()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" align="right">
+                                <button class="btn btn-link" (click)="clearList()" [disabled]="listProducts.length === 0">Limpar Lista</button>
+                                <button type="submit" class="btn close-request" name="submit" [disabled]="listProducts.length === 0" (click)="createRequest()">Fechar Pedido</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
-  
+
 </section>

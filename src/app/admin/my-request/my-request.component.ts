@@ -27,10 +27,11 @@ export class MyRequestComponent implements OnInit {
 		this.enterpriseService.findAll()
 			.then((enterprises: Enterprise[]) => {
 				this.enterprises = enterprises;
+				this.enterprise = this.enterprises[0];
 				if (id) {
 					this.enterprise = enterprises.find((enterprise: Enterprise) => enterprise.id === Number(id));
-					this.listRequest = this.enterprise.request;
 				}
+				this.listRequest = this.enterprise.request;
 			});
 
 	}
