@@ -9,23 +9,45 @@
             <span>Edite as informações de sua conta</span>
         </div>
 
-        <div class="text-input box">
-		    <label for="name">Nome Fantasia</label>
-		    <input type="text" name="name" [(ngModel)]="name">
-        </div>
+            <!-- Init Form -->
+            <form #form="ngForm" novalidate (ngSubmit)="onSave(form.value, form.valid, form)">
 
-        <div class="text-input box">
-		    <label for="cnpj">CNPJ</label>
-		    <input type="text" 
-                name="cnpj" 
-                [textMask]="{mask: maskCnpj, guide: true}"
-                [(ngModel)]="cnpj">
-        </div>
+                <div class="text-input box">
+                    <label for="name">Nome Fantasia</label>
+                    <input type="text" 
+                        class="form-control"
+                        name="name" 
+                        [ngModel]="enterprise.name"
+                        required 
+                        minlength="4" 
+                        #name="ngModel">
+                    <small [hidden]="name.valid || (name.pristine && !form.submitted)" class="text-danger">
+                        Campo necessário (mínimo 4 caracteres)
+                    </small>
+                </div>
 
-        <div class="button-content box">
-            <button class="btn btn-link" type="button" name="cancel" (click)="onCancel()">Cancelar</button>
-		    <button class="btn" type="submit" name="submit" (click)="onSubmit()">Cadastrar</button>
-        </div>
+                <div class="text-input box">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" 
+                        class="form-control" 
+                        name="cnpj" 
+                        [ngModel]="enterprise.cnpj" 
+                        required 
+                        minlength="18"
+                        #cnpj="ngModel" 
+                        [textMask]="{mask: maskCnpj, guide: false}">
+                    <small [hidden]="cnpj.valid || (cnpj.pristine && !form.submitted)" class="text-danger">
+                        Campo necessário
+                    </small>
+                </div>
+
+                <div class="button-content">
+                    <button class="btn btn-link" type="button" name="cancel" (click)="onCancel()">Cancelar</button>
+                    <button class="btn" type="submit" name="submit">Cadastrar</button>    
+                </div>
+
+            </form>
+            <!-- Finish Form -->
     </div>
   </div>
   
