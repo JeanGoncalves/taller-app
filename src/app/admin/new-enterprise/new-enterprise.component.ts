@@ -14,12 +14,12 @@ export class NewEnterpriseComponent implements OnInit {
   	constructor(
   		private router: Router,
   		private enterpriseService: EnterpriseService,
-		private fb: FormBuilder,
-		private enterprises: Enterprise[]
+		private fb: FormBuilder
 	) { }
 
-	public maskCnpj = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+	private enterprises: Enterprise[];
 
+	public maskCnpj = [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/];
 	public enterprise: Enterprise = new Enterprise(0, '', '');
 
 	ngOnInit() {
