@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } 			from '@angular/core';
+import { FormBuilder, FormGroup, Validators } 	from '@angular/forms';
+import { Router } 								from '@angular/router';
 
-import { AuthService }        	from '../../auth.service';
-import { User }               	from '../../model/user.model';
-import { UserService }			from '../../service/user.service';
+import { AuthService }        					from '../../auth.service';
+import { User }               					from '../../model/user.model';
+import { UserService }							from '../../service/user.service';
 
 @Component({
   selector: 'app-my-account',
@@ -11,37 +12,37 @@ import { UserService }			from '../../service/user.service';
 })
 export class MyAccountComponent implements OnInit {
 
-	public user: User;
-	public sPassword;
-	public sRepassword;
 
 	constructor(
 		private authService: AuthService,
 		private router: Router,
-		private userService: UserService
+		private userService: UserService,
+		private fb: FormBuilder
 	) { }
+
+	public user: User;
 
 	ngOnInit() {
 		this.user = this.authService.user;
+		this.user.password = '';
 	}
 
 
 	/* Functions */
-	submit() {
-		if (this.sPassword === this.sRepassword) {
-			this.user.password = btoa(this.sPassword);
-		}
+	onSave(param, isValid, form) {
+		if (isValid) {
+			let user = new User(this.user.id, param.name, param.email, btoa(param.password));
 
-		this.userService.update(this.user)
-			.then((user) => {
-				this.authService.user = user;
-				this.cancel();
-			});
+			this.userService.update(user)
+				.then((user) => {
+					form.reset();
+					this.authService.user = user;
+					this.cancel();
+				});
+		}
 	}
 
 	cancel() {
-		this.sPassword = undefined;
-		this.sRepassword = undefined;
 		this.router.navigate(['/admin']);
 	}
 

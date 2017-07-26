@@ -28,8 +28,6 @@ export class LoginComponent  {
     public user: User;
 
     onLogin(login, isValid: boolean, form: FormGroup) {
-        this.userService.findAll()
-          .then((users: User[]) => console.log(users));
 
         if (isValid) {
             this.userService
@@ -43,7 +41,7 @@ export class LoginComponent  {
                     });
                     return false;
                 }
-                this.authService.isLocalStorage = this.input.saveStorage;
+                this.authService.isLocalStorage = login.saveStorage;
                 this.authService.user = _user;
                 this.register();
             });

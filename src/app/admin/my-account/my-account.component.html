@@ -7,7 +7,75 @@
 
     <div class="content">
 
+        <form #form="ngForm" novalidate (ngSubmit)="onSave(form.value, form.valid, form)">
+
         <div class="text-input box">
+            <label for="name">Nome</label>
+            <input type="text" 
+                class="form-control" 
+                name="name" 
+                [ngModel]="user.name" 
+                required 
+                minlength="4" 
+                #name="ngModel">
+            <small [hidden]="name.valid || (name.pristine && !form.submitted)" class="text-danger">
+                Campo necessário (mínimo 4 caracteres)
+            </small>
+        </div>
+
+        <div class="text-input box">
+            <label for="email">Email</label>
+            <input type="email" 
+                class="form-control" 
+                name="email" 
+                [ngModel]="user.email" 
+                required 
+                #email="ngModel" 
+                pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+            <small [hidden]="email.valid || (email.pristine && !form.submitted)" class="text-danger">
+                Campo necessário (<i>exemplo@contato.com</i>)
+            </small>
+        </div>
+
+        <div class="text-input box">
+            <label for="">Senha</label>
+            <input type="password" 
+                class="form-control" 
+                name="password" 
+                [ngModel]="user.password" 
+                required 
+                validateEqual="confirmPassword" 
+                minlength="8" 
+                reverse="true" 
+                #password="ngModel">
+            <small [hidden]="password.valid || (password.pristine && !form.submitted)" class="text-danger">
+                Campo necessário (mínimo 8 caracteres)
+            </small>
+        </div>
+
+        <div class="text-input box">
+            <label for="">Repetir Senha</label>
+            <input type="password" 
+                class="form-control" 
+                name="repassword"
+                [ngModel]="repassword" 
+                required 
+                validateEqual="password"
+                reverse="false" 
+                #confirmPassword="ngModel">
+            <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !form.submitted)" class="text-danger">
+                Repita a senha corretamente
+            </small>
+        </div>
+
+        <div class="button-content">
+            <button class="btn btn-link" type="button" name="cancel" (click)="onCancel()">Cancelar</button>
+            <button class="btn" type="submit" name="submit">Salvar</button>
+        </div>
+
+      </form>
+
+        <!-- <div class="text-input box">
             <label for="email">E-mail</label>
             <input type="email" name="email" 
                 #email="ngModel" 
@@ -31,7 +99,7 @@
         <div class="button-content box">
             <button class="btn btn-link" type="button" name="cancel" (click)="cancel()">Cancelar</button>
             <button class="btn" type="submit" name="submit" (click)="submit()">Alterar dados</button>
-        </div>
+        </div> -->
     </div>
   </div>
   
