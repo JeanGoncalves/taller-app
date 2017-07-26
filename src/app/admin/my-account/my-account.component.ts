@@ -21,6 +21,7 @@ export class MyAccountComponent implements OnInit {
 	) { }
 
 	public user: User;
+	public repassword: string;
 
 	ngOnInit() {
 		this.user = this.authService.user;
@@ -37,12 +38,12 @@ export class MyAccountComponent implements OnInit {
 				.then((user) => {
 					form.reset();
 					this.authService.user = user;
-					this.cancel();
+					this.onCancel();
 				});
 		}
 	}
 
-	cancel() {
+	onCancel() {
 		this.router.navigate(['/admin']);
 	}
 

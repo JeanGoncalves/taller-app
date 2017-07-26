@@ -21,6 +21,7 @@ export class NewAccountComponent implements OnInit {
 	public form: FormGroup;
 	public users: User[];
 	public user: User = new User(0,'','','');
+	public repassword: string;
 
 	ngOnInit() {
 		this.userService.findAll()
