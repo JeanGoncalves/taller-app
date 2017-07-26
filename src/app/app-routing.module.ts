@@ -11,7 +11,8 @@ const appRoutes: Routes = [
   { path: 'admin',        loadChildren: './admin/admin.module#AdminModule', canLoad: [AuthGuard] },
   { path: 'login',        component: LoginComponent },
   { path: 'new-account',  component: NewAccountComponent },
-  { path: '',             redirectTo: '/admin', pathMatch: 'full' }
+  { path: '',             redirectTo: '/admin', pathMatch: 'full' },
+  { path: '**',           component: NotFoundComponent }
 ];
 
 @NgModule({
