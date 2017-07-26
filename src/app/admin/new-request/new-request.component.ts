@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } 	from '@angular/core';
+import { ActivatedRoute } 				from '@angular/router';
 
-import { EnterpriseService } from '../../service/enterprise.service';
-import { ProductService }	 from '../../service/product.service';
+import { EnterpriseService } 			from '../../service/enterprise.service';
+import { ProductService }	 			from '../../service/product.service';
 import { Enterprise, 
 		 EnterpriseRequest,
-		 EnterpriseProducts }from '../../model/enterprise.model';	
-import { Product }			 from '../../model/product.model';
+		 EnterpriseProducts }			from '../../model/enterprise.model';	
+import { Product }			 			from '../../model/product.model';
 
 @Component({
   selector: 'app-new-request',
@@ -16,7 +17,8 @@ export class NewRequestComponent implements OnInit {
 
 	constructor(
 		private enterpriseService: EnterpriseService,
-		private productService: ProductService
+		private productService: ProductService,
+		private route: ActivatedRoute
 	) { }
 
 	@Input()
@@ -31,8 +33,16 @@ export class NewRequestComponent implements OnInit {
 	public product: 	Product;
 	
 	ngOnInit() {
+		let id = this.route.snapshot.paramMap.get('id');
+
 		this.enterpriseService.findAll()
-			.then((enterprises: Enterprise[]) => this.enterprises = enterprises);
+			.then((enterprises: Enterprise[]) => {
+				this.enterprises = enterprises;
+				this.enterprise = this.enterprises[0];
+				if (id) {
+					this.enterprise = enterprises.find((enterprise: Enterprise) => enterprise.id === Number(id));
+				}
+			});
 
 		this.productService.findAll()
 			.then((products: Product[]) => this.products = products);

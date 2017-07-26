@@ -21,6 +21,7 @@ const adminRoutes: Routes = [
       { path: 'my-account',     component: MyAccountComponent },
       { path: 'new-enterprise', component: NewEnterpriseComponent },
       { path: 'new-request',    component: NewRequestComponent },
+      { path: 'new-request/:id',component: NewRequestComponent },
       { path: '',               component: DashboardComponent }
     ]
   }

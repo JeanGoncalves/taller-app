@@ -42,7 +42,7 @@
             <tr *ngIf="listRequest == 0">
               <td colspan="3" align="center">
                 Essa empresa não possui pedidos.
-                <button class="btn btn-link" routerLink="/admin/new-request">Clique aqui e adicione um novo pedido</button>
+                <button class="btn btn-link" [routerLink]="['/admin/new-request', enterprise.id]">Clique aqui e adicione um novo pedido</button>
             </tr>
           </tbody>
         </table>
