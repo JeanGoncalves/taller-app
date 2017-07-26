@@ -7,28 +7,53 @@
       <div class="title">Login</div>
 
       <span class="description">Efetue seu login para acessar o sistema</span>
-      
-      <div class="itens-input">
-        <label for="login">E-mail</label>
-        <input type="text" name="email" [(ngModel)]="input.email">
-      </div>
 
-      <div class="itens-input">
-        <label for="password">Senha</label>
-        <input type="password" name="password" [(ngModel)]="input.password">
-      </div>
+      <!-- Init Form -->
+      <form #form="ngForm" novalidate (ngSubmit)="onLogin(form.value, form.valid, form)">
 
-      <div class="button-content">
-        <div>
-          <input type="checkbox" name="saveStorage" [(ngModel)]="input.saveStorage">
-          Gravar acesso
+        <div class="itens-input">
+          <label for="email">E-mail</label>
+          <input type="text" 
+            class="form-control"
+            name="email"
+            [ngModel]="input.email"
+            required
+            #loginName="ngModel">
         </div>
-        <button class="btn" type="submit" (click)="login()">Login</button>
-      </div>
 
-      <div class="extra-links">
-        <button class="btn btn-link" routerLink="/new-account">Criar uma nova conta</button>
-      </div>
+        <div class="itens-input">
+          <label for="password">Senha</label>
+          <input type="password" 
+            class="form-control"
+            name="password"
+            required
+            [ngModel]="input.password"
+            #password="ngModel">
+        </div>
+
+        <div class="itens-input text-center">
+          <small class="text-danger"
+            [hidden]="(loginName.valid && password.valid) || ((password.pristine || loginName.pristine) && !form.submitted)"
+            >E-mail ou senha incorreto. Tente novamente</small>
+        </div>
+        
+        <div class="button-content">
+          <div>
+            <input type="checkbox" 
+              name="saveStorage" 
+              [ngModel]="input.saveStorage"
+              #saveStorage="ngModel"
+              >
+            Gravar Acesso
+          </div>
+          <button class="btn" type="submit" name="submit">Entrar</button>
+        </div>
+
+        <div class="extra-links text-center">
+          <button class="btn btn-link" routerLink="/new-account">Criar uma nova conta</button>
+        </div>
+      </form>
+
     </div>
   </div>
   

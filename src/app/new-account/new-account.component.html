@@ -2,30 +2,81 @@
 
   <div class="center">
     <div class="box-center">
-
+    
       <div class="title">Novo Cadastro</div>
 
       <span class="description">Insira as informações abaixo para cadastrar</span>
-      
-      <div class="itens-input">
-        <label for="email">E-mail</label>
-        <input type="email" name="email" placeholder="Insira seu e-mail">
-      </div>
 
-      <div class="itens-input">
-        <label for="password">Senha</label>
-        <input type="password" name="password">
-      </div>
+      <!-- Init Form -->
+      <form #f="ngForm" novalidate (ngSubmit)="onSave(f.value, f.valid)">
 
-      <div class="itens-input">
-        <label for="repassword">Repetir Senha</label>
-        <input type="password" name="repassword">
-      </div>
+        <div class="itens-input">
+          <label for="name">Nome</label>
+          <input type="text" 
+            class="form-control" 
+            name="name" 
+            [ngModel]="user.name" 
+            required 
+            minlength="4" 
+            #name="ngModel">
+          <small [hidden]="name.valid || (name.pristine && !f.submitted)" class="text-danger">
+            Campo necessário (mínimo 4 caracteres)
+          </small>
+        </div>
 
-      <div class="button-content">
-        <button class="btn btn-link" type="button" name="cancel" routerLink="/login">Cancelar</button>
-        <button class="btn" type="submit" name="submit">Cadastrar</button>
-      </div>
+        <div class="itens-input">
+          <label for="email">Email</label>
+          <input type="email" 
+            class="form-control" 
+            name="email" 
+            [ngModel]="user.email" 
+            required 
+            #email="ngModel" 
+            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+          <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+            Campo necessário (<i>exemplo@contato.com</i>)
+          </small>
+        </div>
+
+        <div class="itens-input">
+          <label for="">Senha</label>
+          <input type="password" 
+            class="form-control" 
+            name="password" 
+            [ngModel]="user.password" 
+            required 
+            validateEqual="confirmPassword" 
+            minlength="8" 
+            reverse="true" 
+            #password="ngModel">
+          <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+            Campo necessário (mínimo 8 caracteres)
+          </small>
+        </div>
+
+        <div class="itens-input">
+          <label for="">Repetir Senha</label>
+          <input type="password" 
+            class="form-control" 
+            name="repassword"
+            [ngModel]="repassword" 
+            required 
+            validateEqual="password"
+            reverse="false" 
+            #confirmPassword="ngModel">
+          <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" class="text-danger">
+            Repita a senha corretamente
+          </small>
+        </div>
+
+        <div class="button-content">
+          <button class="btn btn-link" type="button" name="cancel" (click)="onCancel()">Cancelar</button>
+          <button class="btn" type="submit" name="submit">Cadastrar</button>
+        </div>
+
+      </form>
+      <!-- Finish Form -->
+
     </div>
   </div>
 
