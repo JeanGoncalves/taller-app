@@ -50,7 +50,9 @@ export class NewRequestComponent implements OnInit {
 
 	/* Functions */
 	qtdUp() {
-		this.quantity++;
+		if (this.quantity < 50){
+			this.quantity++;
+		}
 	};
 
 	qtdDown() {
