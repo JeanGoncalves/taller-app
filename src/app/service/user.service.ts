@@ -25,39 +25,30 @@ export class UserService {
             .catch(this.handleError);
     }
 
-    find(email: string, password: string): Promise<User> {
+    find(email: string, password?: string): Promise<User> {
         return this.findAll()
-            .then((user: User[]) => user.find((user) => user.email === email && user.password === btoa(password)));
+            .then((user: User[]) => user.find((user) => user.email === email && ((password) ? user.password === btoa(password) : true )));
     }
 
     create(user: User): Promise<User> {
-        // generate primary key Test Ambiance
-        // this.findAll().then(data => user.id = data.length);
-
-        return this.verifyEmail(user, (_user) => {
-            this.http
-            .post(this.userUrl, JSON.stringify(user), {headers: this.headers})
-            .toPromise()
-            .then((response: Response) => response.json().data as User)
-            .catch(this.handleError);
-        })
-        
-        /*return this.http
-            .post(this.userUrl, JSON.stringify(user), {headers: this.headers})
-            .toPromise()
-            .then((response: Response) => response.json().data as User)
-            .catch(this.handleError);*/
+        return this.verifyEmail(user, () => {
+            return this.http
+                    .post(this.userUrl, JSON.stringify(user), {headers: this.headers})
+                    .toPromise()
+                    .then((response: Response) => response.json().data as User)
+                    .catch(this.handleError);
+        });
     }
 
     update(user: User): Promise<User> {
         const url = `${this.userUrl}/${user.id}`;
-        
+
         return this.verifyEmail(user, (_user) => {
-            this.http
-            .put(url, JSON.stringify(_user), {headers: this.headers})
-            .toPromise()
-            .then(() => user as User)
-            .catch(this.handleError);
+            return this.http
+                .put(url, JSON.stringify(_user), {headers: this.headers})
+                .toPromise()
+                .then(() => user as User)
+                .catch(this.handleError);
         });
     }
 
@@ -75,14 +66,12 @@ export class UserService {
     }
 
     verifyEmail(user: User, callback) {
-        return this.findAll().then((data) => {
-            if (user.id === 0) { user.id = data.length + 1; }
-
-            let hasEmail = data.find(_user => _user.email === user.email);
-            if (!hasEmail) {
+        return this.find(user.email)
+            .then((data) => {
+                if (user.id === 0 && data !== undefined) {
+                    return undefined;
+                }
                 return callback(user);
-            }
-            return false;
-        });
+            });
     }
 }
