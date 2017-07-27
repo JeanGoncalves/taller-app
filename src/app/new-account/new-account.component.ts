@@ -22,6 +22,7 @@ export class NewAccountComponent implements OnInit {
 	public users: User[];
 	public user: User = new User(0,'','','');
 	public repassword: string;
+	public validateMail: boolean = true;
 
 	ngOnInit() {
 		this.userService.findAll()
@@ -36,7 +37,13 @@ export class NewAccountComponent implements OnInit {
 		let user = new User(this.users.length + 1, newUser.name, newUser.email, btoa(newUser.password));
 		if (isValid) {
 			this.userService.create(user)
-				.then(() => this.onCancel());
+				.then((data) => {
+					if (!data) {
+						this.validateMail = false;
+						return false;
+					}
+					this.onCancel();
+				});
 		}
 	}
 }

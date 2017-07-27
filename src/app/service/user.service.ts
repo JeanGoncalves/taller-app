@@ -12,6 +12,7 @@ export class UserService {
 
     private userUrl: string = 'app/user';
     private headers: Headers = new Headers({'Content-type': 'application/json'});
+    private nextId: number;
 
     constructor(
         private http: Http
@@ -31,23 +32,33 @@ export class UserService {
 
     create(user: User): Promise<User> {
         // generate primary key Test Ambiance
-        this.findAll().then(data => user.id = data.length);
-        
-        return this.http
+        // this.findAll().then(data => user.id = data.length);
+
+        return this.verifyEmail(user, (_user) => {
+            this.http
             .post(this.userUrl, JSON.stringify(user), {headers: this.headers})
             .toPromise()
             .then((response: Response) => response.json().data as User)
             .catch(this.handleError);
+        })
+        
+        /*return this.http
+            .post(this.userUrl, JSON.stringify(user), {headers: this.headers})
+            .toPromise()
+            .then((response: Response) => response.json().data as User)
+            .catch(this.handleError);*/
     }
 
     update(user: User): Promise<User> {
         const url = `${this.userUrl}/${user.id}`;
         
-        return this.http
-            .put(url, JSON.stringify(user), {headers: this.headers})
+        return this.verifyEmail(user, (_user) => {
+            this.http
+            .put(url, JSON.stringify(_user), {headers: this.headers})
             .toPromise()
             .then(() => user as User)
             .catch(this.handleError);
+        });
     }
 
     delete(user: User): Promise<User> {
@@ -61,5 +72,17 @@ export class UserService {
 
     private handleError(err: any): Promise<any> {
         return Promise.reject(err.message || err);
+    }
+
+    verifyEmail(user: User, callback) {
+        return this.findAll().then((data) => {
+            if (user.id === 0) { user.id = data.length + 1; }
+
+            let hasEmail = data.find(_user => _user.email === user.email);
+            if (!hasEmail) {
+                return callback(user);
+            }
+            return false;
+        });
     }
 }

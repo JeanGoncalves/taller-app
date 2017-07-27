@@ -69,6 +69,10 @@
           </small>
         </div>
 
+        <div class="itens-input">
+          <small class="text-danger" *ngIf="!validateMail">Este email já está cadastrado.</small>
+        </div>
+
         <div class="button-content">
           <button class="btn btn-link" type="button" name="cancel" (click)="onCancel()">Cancelar</button>
           <button class="btn" type="submit" name="submit">Cadastrar</button>
