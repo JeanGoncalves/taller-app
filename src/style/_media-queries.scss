@@ -1,0 +1,32 @@
+@media screen and (max-width: 992px) {
+	.icon-menu {
+		display: inline-block;
+	}
+
+	.body-content .menu {
+		position: absolute;
+		display: none;
+		height: 0;
+
+		&.show {
+			display: block;
+			height: 100%;
+			width: 100% !important;
+		}
+	}
+
+	.table-content table {
+	    width: 100%;
+	}
+}
+
+@media screen and (min-width: 993px) {
+	.icon-menu {
+		display: none;
+	}
+
+	.table-content table {
+	    width: 70%;
+	}
+
+}

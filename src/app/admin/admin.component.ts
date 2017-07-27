@@ -34,4 +34,8 @@ export class AdminComponent implements OnInit {
         this.authService.logout();
     }
 
+    onChange(elem, menu) {
+        elem.classList.toggle("change");
+        menu.classList.toggle("show");
+    }
 }
